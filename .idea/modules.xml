@@ -1,0 +1,11 @@
+<?xml version="1.0" encoding="UTF-8"?>
+<project version="4">
+  <component name="ProjectModuleManager">
+    <modules>
+      <module fileurl="file://$PROJECT_DIR$/.idea/Examination.iml" filepath="$PROJECT_DIR$/.idea/Examination.iml" />
+      <module fileurl="file://$PROJECT_DIR$/Examination-Common/Examination-Common.iml" filepath="$PROJECT_DIR$/Examination-Common/Examination-Common.iml" />
+      <module fileurl="file://$PROJECT_DIR$/Examination-Constants/Examination-Constants.iml" filepath="$PROJECT_DIR$/Examination-Constants/Examination-Constants.iml" />
+      <module fileurl="file://$PROJECT_DIR$/Examination-Explorer/Examination-Explorer.iml" filepath="$PROJECT_DIR$/Examination-Explorer/Examination-Explorer.iml" />
+    </modules>
+  </component>
+</project>

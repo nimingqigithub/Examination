@@ -1,0 +1,22 @@
+<?xml version="1.0" encoding="UTF-8"?>
+<project version="4">
+  <component name="CompilerConfiguration">
+    <annotationProcessing>
+      <profile name="Maven default annotation processors profile" enabled="true">
+        <sourceOutputDir name="target/generated-sources/annotations" />
+        <sourceTestOutputDir name="target/generated-test-sources/test-annotations" />
+        <outputRelativeToContentRoot value="true" />
+        <module name="Examination" />
+        <module name="Examination-Common" />
+        <module name="Examination-Constants" />
+        <module name="Examination-Explorer" />
+      </profile>
+    </annotationProcessing>
+    <bytecodeTargetLevel>
+      <module name="Examination" target="1.7" />
+      <module name="Examination-Common" target="1.7" />
+      <module name="Examination-Constants" target="1.7" />
+      <module name="Examination-Explorer" target="1.7" />
+    </bytecodeTargetLevel>
+  </component>
+</project>
