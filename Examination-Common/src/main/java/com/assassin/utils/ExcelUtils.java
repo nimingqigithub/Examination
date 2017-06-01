@@ -1,7 +1,7 @@
 package com.assassin.utils;
 
 import com.assassin.exception.ExceptionUtils;
-import com.assassin.exception.RealEstateException;
+import com.assassin.exception.AssassinException;
 import org.apache.commons.collections.map.HashedMap;
 import org.apache.poi.hssf.usermodel.HSSFWorkbook;
 import org.apache.poi.ss.usermodel.Cell;
@@ -98,16 +98,16 @@ public class ExcelUtils {
             }
         } catch (IllegalAccessException illegalAccessException) {
             ExceptionUtils.LoadLog(illegalAccessException);
-            throw new RealEstateException(ExceptionUtils.DealErrorMsg(illegalAccessException));
+            throw new AssassinException(ExceptionUtils.DealErrorMsg(illegalAccessException));
         } catch (InstantiationException instantiationException) {
             ExceptionUtils.LoadLog(instantiationException);
-            throw new RealEstateException(ExceptionUtils.DealErrorMsg(instantiationException));
+            throw new AssassinException(ExceptionUtils.DealErrorMsg(instantiationException));
         } catch (NoSuchMethodException noSuchMethodException) {
             ExceptionUtils.LoadLog(noSuchMethodException);
-            throw new RealEstateException(ExceptionUtils.DealErrorMsg(noSuchMethodException));
+            throw new AssassinException(ExceptionUtils.DealErrorMsg(noSuchMethodException));
         } catch (InvocationTargetException invocationTargetException) {
             ExceptionUtils.LoadLog(invocationTargetException);
-            throw new RealEstateException(ExceptionUtils.DealErrorMsg(invocationTargetException));
+            throw new AssassinException(ExceptionUtils.DealErrorMsg(invocationTargetException));
         } finally {
             if (workbook != null) {
                 try {
@@ -179,7 +179,7 @@ public class ExcelUtils {
             } else return s;
         } catch (ParseException p) {
             ExceptionUtils.LoadLog(p);
-            throw new RealEstateException(ExceptionUtils.DealErrorMsg(p));
+            throw new AssassinException(ExceptionUtils.DealErrorMsg(p));
         }
     }
 }

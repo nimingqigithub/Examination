@@ -10,12 +10,12 @@ import org.springframework.web.bind.annotation.ResponseStatus;
  * Created by Administrator on 2016/10/24.
  */
 @ControllerAdvice
-public class RealEstateExceptionAdvice {
+public class AssassinExceptionAdvice {
 
     @ResponseStatus(HttpStatus.BAD_REQUEST) // 400
-    @ExceptionHandler(RealEstateException.class)
+    @ExceptionHandler(AssassinException.class)
     @ResponseBody
-    public RealEstateExceptionErrorInfo handleIllegal(RealEstateException e) {
-        return new RealEstateExceptionErrorInfo("Bad request", e);
+    public AssassinExceptionErrorInfo handleIllegal(AssassinException e) {
+        return new AssassinExceptionErrorInfo("Bad request", e);
     }
 }

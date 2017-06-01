@@ -3,12 +3,12 @@ package com.assassin.exception;
 import com.fasterxml.jackson.annotation.JsonInclude;
 import com.fasterxml.jackson.annotation.JsonInclude.Include;
 
-public class RealEstateExceptionErrorInfo {
+public class AssassinExceptionErrorInfo {
 
   private String message;
   private String exception;
 
-  public RealEstateExceptionErrorInfo(String message, Exception ex) {
+  public AssassinExceptionErrorInfo(String message, Exception ex) {
       this.message = message;
       if (ex != null) {
         this.exception = ex.getLocalizedMessage();

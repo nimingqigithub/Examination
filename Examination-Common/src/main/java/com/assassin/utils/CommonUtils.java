@@ -1,6 +1,6 @@
 package com.assassin.utils;
 
-import com.assassin.exception.RealEstateException;
+import com.assassin.exception.AssassinException;
 import oracle.sql.CLOB;
 import org.apache.commons.collections.map.HashedMap;
 
@@ -24,7 +24,7 @@ public class CommonUtils {
                                      Boolean IsThrowException) {
         if (!allQueryParam.containsKey(keyName)) {
             if (IsThrowException) {
-                throw new RealEstateException("请传入" + keyName + "参数");
+                throw new AssassinException("请传入" + keyName + "参数");
             } else {
                 return "";
             }

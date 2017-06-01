@@ -7,7 +7,7 @@
     <artifactId>Examination-Explorer</artifactId>
     <name>Examination-Explorer</name>
     <version>1.0.0</version>
-    <packaging>jar</packaging>
+    <packaging>war</packaging>
     <parent>
         <artifactId>Examination</artifactId>
         <groupId>com.assassin</groupId>
@@ -16,15 +16,6 @@
 
     </parent>
 
-    <build>
-        <finalName>Examination-Explorer</finalName>
-        <resources>
-            <resource>
-                <directory>src/main/resources</directory>
-                <excludes><exclude>mappings/</exclude></excludes>
-            </resource>
-        </resources>
-    </build>
     <dependencies>
         <dependency>
             <groupId>com.assassin</groupId>

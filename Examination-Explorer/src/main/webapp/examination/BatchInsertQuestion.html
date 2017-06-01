@@ -1,0 +1,37 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <title>批量插入考试题目</title>
+    <script type="text/javascript" src="../resource/jquery/jquery-1.9.1.min.js"></script>
+    <script type="text/javascript" src="../resource/json/jsonlint.js"></script>
+    <script type="text/javascript" src="../resource/jquery/layer/layer.js"></script>
+</head>
+<body>
+    <input type="button" value="保存数据" onclick="saveData()">
+    <script type="text/javascript">
+
+
+        function saveData(){
+            $.get("question.json",function(value){
+                $.ajax({
+                    type: "POST",
+                    url: "../saveExaminationQuestion",
+                    contentType: "application/json; charset=utf-8",
+                    data: JSON.stringify(value),
+                    dataType: "json",
+                    success: function (result) {
+                        layer.alert("保存成功");
+                    },
+                    error: function (res) {
+                        layer.alert(res.responseText);
+                    }
+                });
+            });
+
+
+
+        }
+    </script>
+</body>
+</html>

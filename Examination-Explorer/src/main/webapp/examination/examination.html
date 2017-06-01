@@ -1,0 +1,1438 @@
+﻿<html>  
+<head>  
+<meta http-equiv="Content-Language" mrc="zh-cn">  
+<meta http-equiv="Content-Type" mrc="text/html; charset=gb2312">  
+<title>MBTI测试</title> 
+<style>
+body{font-size:14px;line-height:1.2em;}
+.head_nav{position:fixed;top:0px;left:0px;right:0px;height:40px;margin:0px;background:#eee;border:1px solid #ddd;}
+.webtitle{font-size:20px;font-weight:bold;line-height:30px}
+.left_nav{position:fixed;top:50px;left:0px;bottom:10px;width:280px;margin:0px;background:#fff;border:1px solid #ddd;text-align:center}
+.userInfo{min-height:30px;line-height:30px;padding-left:10px;font-weight:bold;background:#fefefe;border-bottom:1px solid #ddd;margin-bottom:5px;overflow:hidden;}
+.maincontainer{position:absolute;top:50px;left:300px;bottom:10px;right:10px;margin:0px;background:#fff;border:1px solid #ddd;}
+.lt{text-align:left;}
+.lc{text-align:center;}
+.lr{text-align:right;}
+.content{margin:5px 10px;}
+ul{font-weight:bold;margin:2px;line-height:22px;overflow:hidden;margin-top:10px;border-bottom:0px solid #ccc;list-style:none;font-size:12px;}
+li{font-weight:normal;margin:2px;line-height:22px;font-size:12px;}
+.finished{background:#ffff00}
+.countTimer{position:absolute;top:10px;height:22px;line-height:22px;right:50px;width:150px;border:1px solid #ddd;color:#333;font-weight:bold;text-align:center;}
+.bottom_nav{position:absolute;bottom:20px;left:310px;right:10px;height:40px;text-align:center;}
+.large_button{display:inline-block;height:30px;width:80px;margin-right:4px;line-height:30px;text-align:center;border:0px solid #ddd;background:#efefef;color:#333;font-size:14px;font-weight:bold;border-radius:4px;cursor:pointer;}
+.orange{color:#fff;background:#fa810b!important;}
+.orange:hover{color:#fff;background:#ff9900!important;}
+.blue{color:#fff;background:#046ad2!important;}
+.blue:hover{color:#fff;background:#214ba1!important;}
+.disabled{color:#ccc;background:#e5e5e5!important;}
+td{font-size:12px;}
+</style>
+<script>
+
+var question1=[
+	{
+	question:"当你要出外一整天，你会不会",
+	questionType:"JP",
+	answer:[
+		{sub_answer:"计划你要做什么和在什么时候做",mark:"J"},
+		{sub_answer:"说去就去",mark:"P"}
+	]
+	},
+
+	{
+	question:"你认为自己是一个",
+	questionType:"JP",
+	answer:[
+		{sub_answer:"较为随兴所至的人",mark:"P"},
+		{sub_answer:"较为有条理的人",mark:"J"}
+	]
+	},
+	
+	//重复数据开始3------------------------------
+	{
+	question:"假如你是一位老师，你会选教",
+	questionType:"SN",
+	answer:[
+		{sub_answer:"以事实为主的课程",mark:"S"},
+		{sub_answer:"涉及理论的课程",mark:"N"}
+	]
+	},
+	//重复数据结束------------------------------
+
+	//重复数据开始4------------------------------
+	{
+	question:"你通常",
+	questionType:"EI",
+	answer:[
+		{sub_answer:"与人容易混熟",mark:"E"},
+		{sub_answer:"比较沉静和矜持",mark:"I"}
+	]
+	},
+	//重复数据结束------------------------------
+	
+	//重复数据开始5------------------------------
+	{
+	question:"一般来说，你和哪些人比较合得来",
+	questionType:"SN",
+	answer:[
+		{sub_answer:"富于想象力的人",mark:"N"},
+		{sub_answer:"现实的人",mark:"S"}
+	]
+	},
+	//重复数据结束------------------------------
+	
+	//重复数据开始6------------------------------
+	{
+	question:"你是否经常让",
+	questionType:"TF",
+	answer:[
+		{sub_answer:"你的情感支配你的理智",mark:"F"},
+		{sub_answer:"你的理智主宰你的情感",mark:"T"}
+	]
+	},
+	//重复数据结束------------------------------
+	
+	//重复数据开始7------------------------------
+	{
+	question:"处理许多事情上，你会喜欢",
+	questionType:"JP",
+	answer:[
+		{sub_answer:"凭兴所至行事",mark:"P"},
+		{sub_answer:"按照计划行事",mark:"J"}
+	]
+	},
+	//重复数据结束------------------------------
+	
+	//重复数据开始8------------------------------
+	{
+	question:"你是否 ",
+	questionType:"EI",
+	answer:[
+		{sub_answer:"容易让人了解",mark:"E"},
+		{sub_answer:"难于让人了解",mark:"I"}
+	]
+	},
+	//重复数据结束------------------------------
+	
+	//重复数据开始9------------------------------
+	{
+	question:"按照程序表做事 ",
+	questionType:"JP",
+	answer:[
+		{sub_answer:"合你心意",mark:"J"},
+		{sub_answer:"令你感到束缚",mark:"P"}
+	]
+	},
+	//重复数据结束------------------------------
+	
+	//重复数据开始10------------------------------
+	{
+	question:"当你有一份特别的任务，你会喜欢 ",
+	questionType:"JP",
+	answer:[
+		{sub_answer:"开始前小心组织计划",mark:"J"},
+		{sub_answer:"边做边找须做什么",mark:"P"}
+	]
+	},
+	//重复数据结束------------------------------
+	
+	//重复数据开始11------------------------------
+	{
+	question:"在大多数情况下，你会选择 ",
+	questionType:"JP",
+	answer:[
+		{sub_answer:"顺起自然",mark:"P"},
+		{sub_answer:"按程序表做事",mark:"J"}
+	]
+	},
+	//重复数据结束------------------------------
+	
+	//重复数据开始12------------------------------
+	{
+	question:"大多数人会说你是一个",
+	questionType:"EI",
+	answer:[
+		{sub_answer:"重视自我私隐的人",mark:"I"},
+		{sub_answer:"非常坦率开放的人",mark:"E"}
+	]
+	},
+	//重复数据结束------------------------------
+	
+	//重复数据开始13------------------------------
+	{
+	question:"你宁愿被人认为是一个",
+	questionType:"SN",
+	answer:[
+		{sub_answer:"实事求是的人",mark:"S"},
+		{sub_answer:"机灵的人",mark:"N"}
+	]
+	},
+	//重复数据结束------------------------------
+	
+	//重复数据开始14------------------------------
+	{
+	question:"在一大群人当中，通常是",
+	questionType:"EI",
+	answer:[
+		{sub_answer:"你介绍大家认识",mark:"E"},
+		{sub_answer:"别人介绍你",mark:"I"}
+	]
+	},
+	//重复数据结束------------------------------
+	
+	//重复数据开始15------------------------------
+	{
+	question:"你会跟哪些人做朋友",
+	questionType:"SN",
+	answer:[
+		{sub_answer:"常提出新主意的",mark:"N"},
+		{sub_answer:"别人介绍你",mark:"S"}
+	]
+	},
+	//重复数据结束------------------------------
+	
+	//重复数据开始16------------------------------
+	{
+	question:"你倾向",
+	questionType:"TF",
+	answer:[
+		{sub_answer:"重视感情多于逻辑",mark:"F"},
+		{sub_answer:"重视逻辑多于感情",mark:"T"}
+	]
+	},
+	//重复数据结束------------------------------
+	
+	//重复数据开始17------------------------------
+	{
+	question:"你比较喜欢",
+	questionType:"JP",
+	answer:[
+		{sub_answer:"坐观事情发展才作计划",mark:"P"},
+		{sub_answer:"很早就做计划",mark:"J"}
+	]
+	},
+	//重复数据结束------------------------------
+	
+	//重复数据开始18------------------------------
+	{
+	question:"你喜欢花很多的时间",
+	questionType:"EI",
+	answer:[
+		{sub_answer:"一个人独处",mark:"I"},
+		{sub_answer:"和别人在一起",mark:"E"}
+	]
+	},
+	//重复数据结束------------------------------
+	
+	//重复数据开始19------------------------------
+	{
+	question:"与很多人一起会否",
+	questionType:"EI",
+	answer:[
+		{sub_answer:"令你活力倍增",mark:"E"},
+		{sub_answer:"常常令你心力交瘁",mark:"I"}
+	]
+	},
+	//重复数据结束------------------------------
+	
+	//重复数据开始20------------------------------
+	{
+	question:"你比较喜欢",
+	questionType:"JP",
+	answer:[
+		{sub_answer:"很早便把约会、社交聚集等事情安排妥当",mark:"J"},
+		{sub_answer:"无拘无束，看当时有什么好玩就做什么",mark:"P"}
+	]
+	},
+	//重复数据结束------------------------------
+	
+	//重复数据开始21------------------------------
+	{
+	question:"计划一个旅程时，你较喜欢",
+	questionType:"JP",
+	answer:[
+		{sub_answer:"大部分时间都是跟当天的感觉行事",mark:"P"},
+		{sub_answer:"事先知道大部分的日子会做什么",mark:"J"}
+	]
+	},
+	//重复数据结束------------------------------
+	
+	//重复数据开始22------------------------------
+	{
+	question:"在社会聚会中",
+	questionType:"EI",
+	answer:[
+		{sub_answer:"有时感到烦闷",mark:"I"},
+		{sub_answer:"常常乐在其中",mark:"E"}
+	]
+	},
+	//重复数据结束------------------------------
+	
+	//重复数据开始23------------------------------
+	{
+	question:"你通常是否",
+	questionType:"EI",
+	answer:[
+		{sub_answer:"和别人容易混熟",mark:"E"},
+		{sub_answer:"趋向自处一隅",mark:"I"}
+	]
+	},
+	//重复数据结束------------------------------
+	
+	//重复数据开始24------------------------------
+	{
+	question:"哪些人会更吸引你",
+	questionType:"SN",
+	answer:[
+		{sub_answer:"一个思想敏捷及非常聪颖的人",mark:"N"},
+		{sub_answer:"实事求是，具丰富常识的人",mark:"S"}
+	]
+	},
+	//重复数据结束------------------------------
+	
+	//重复数据开始25------------------------------
+	{
+	question:"在日常工作中，你会",
+	questionType:"JP",
+	answer:[
+		{sub_answer:"颇为喜欢处理迫使你分秒必争的突发事件",mark:"P"},
+		{sub_answer:"通常预先计划，以免要在压力下工作",mark:"J"}
+	]
+	},
+	//重复数据结束------------------------------
+	
+	//重复数据开始26------------------------------
+	{
+	question:"你认为别人一般",
+	questionType:"EI",
+	answer:[
+		{sub_answer:"要花很长时间才认识你",mark:"I"},
+		{sub_answer:"用很短的时间便认识你",mark:"E"}
+	]
+	},
+	//重复数据结束------------------------------
+	
+	//重复数据开始27------------------------------
+	{
+	question:"在下列每一对词语中，哪一个词语更合你心意？请你仔细想想这些词语的意义，而不要理会它们的字形或读音。",
+	questionType:"EI",
+	answer:[
+		{sub_answer:"注重隐私",mark:"I"},
+		{sub_answer:"坦率开放",mark:"E"}
+	]
+	},
+	//重复数据结束------------------------------
+	
+	//重复数据开始28------------------------------
+	{
+	question:"在下列每一对词语中，哪一个词语更合你心意？请你仔细想想这些词语的意义，而不要理会它们的字形或读音。",
+	questionType:"JP",
+	answer:[
+		{sub_answer:"预先安排的",mark:"J"},
+		{sub_answer:"无计划的",mark:"P"}
+	]
+	},
+	//重复数据结束------------------------------
+	
+	//重复数据开始29------------------------------
+	{
+	question:"在下列每一对词语中，哪一个词语更合你心意？请你仔细想想这些词语的意义，而不要理会它们的字形或读音。",
+	questionType:"SN",
+	answer:[
+		{sub_answer:"抽象",mark:"N"},
+		{sub_answer:"具体",mark:"S"}
+	]
+	},
+	//重复数据结束------------------------------
+	
+	//重复数据开始30------------------------------
+	{
+	question:"在下列每一对词语中，哪一个词语更合你心意？请你仔细想想这些词语的意义，而不要理会它们的字形或读音。",
+	questionType:"TF",
+	answer:[
+		{sub_answer:"温柔",mark:"F"},
+		{sub_answer:"坚定",mark:"T"}
+	]
+	},
+	//重复数据结束------------------------------
+	
+	//重复数据开始31------------------------------
+	{
+	question:"在下列每一对词语中，哪一个词语更合你心意？请你仔细想想这些词语的意义，而不要理会它们的字形或读音。",
+	questionType:"TF",
+	answer:[
+		{sub_answer:"思考",mark:"T"},
+		{sub_answer:"感受",mark:"F"}
+	]
+	},
+	//重复数据结束------------------------------
+	
+	//重复数据开始32------------------------------
+	{
+	question:"在下列每一对词语中，哪一个词语更合你心意？请你仔细想想这些词语的意义，而不要理会它们的字形或读音。",
+	questionType:"SN",
+	answer:[
+		{sub_answer:"事实",mark:"S"},
+		{sub_answer:"意念",mark:"N"}
+	]
+	},
+	//重复数据结束------------------------------
+	
+	//重复数据开始33------------------------------
+	{
+	question:"在下列每一对词语中，哪一个词语更合你心意？请你仔细想想这些词语的意义，而不要理会它们的字形或读音。",
+	questionType:"JP",
+	answer:[
+		{sub_answer:"冲动",mark:"P"},
+		{sub_answer:"决定",mark:"J"}
+	]
+	},
+	//重复数据结束------------------------------
+	
+	//重复数据开始34------------------------------
+	{
+	question:"在下列每一对词语中，哪一个词语更合你心意？请你仔细想想这些词语的意义，而不要理会它们的字形或读音。",
+	questionType:"EI",
+	answer:[
+		{sub_answer:"热衷",mark:"E"},
+		{sub_answer:"文静",mark:"I"}
+	]
+	},
+	//重复数据结束------------------------------
+	
+	//重复数据开始35------------------------------
+	{
+	question:"在下列每一对词语中，哪一个词语更合你心意？请你仔细想想这些词语的意义，而不要理会它们的字形或读音。",
+	questionType:"EI",
+	answer:[
+		{sub_answer:"文静",mark:"I"},
+		{sub_answer:"外向",mark:"E"}
+	]
+	},
+	//重复数据结束------------------------------
+	
+	//重复数据开始36------------------------------
+	{
+	question:"在下列每一对词语中，哪一个词语更合你心意？请你仔细想想这些词语的意义，而不要理会它们的字形或读音。",
+	questionType:"JP",
+	answer:[
+		{sub_answer:"有系统",mark:"J"},
+		{sub_answer:"随意",mark:"P"}
+	]
+	},
+	//重复数据结束------------------------------
+	
+	//重复数据开始37------------------------------
+	{
+	question:"在下列每一对词语中，哪一个词语更合你心意？请你仔细想想这些词语的意义，而不要理会它们的字形或读音。",
+	questionType:"SN",
+	answer:[
+		{sub_answer:"理论",mark:"N"},
+		{sub_answer:"肯定",mark:"S"}
+	]
+	},
+	//重复数据结束------------------------------
+	
+	//重复数据开始38------------------------------
+	{
+	question:"在下列每一对词语中，哪一个词语更合你心意？请你仔细想想这些词语的意义，而不要理会它们的字形或读音。",
+	questionType:"TF",
+	answer:[
+		{sub_answer:"敏感",mark:"F"},
+		{sub_answer:"公正",mark:"T"}
+	]
+	},
+	//重复数据结束------------------------------
+	
+	//重复数据开始39------------------------------
+	{
+	question:"在下列每一对词语中，哪一个词语更合你心意？请你仔细想想这些词语的意义，而不要理会它们的字形或读音。",
+	questionType:"TF",
+	answer:[
+		{sub_answer:"令人信服",mark:"T"},
+		{sub_answer:"感人的",mark:"F"}
+	]
+	},
+	//重复数据结束------------------------------
+	
+	//重复数据开始40------------------------------
+	{
+	question:"在下列每一对词语中，哪一个词语更合你心意？请你仔细想想这些词语的意义，而不要理会它们的字形或读音。",
+	questionType:"SN",
+	answer:[
+		{sub_answer:"声明",mark:"S"},
+		{sub_answer:"概念",mark:"N"}
+	]
+	},
+	//重复数据结束------------------------------
+	
+	//重复数据开始41------------------------------
+	{
+	question:"在下列每一对词语中，哪一个词语更合你心意？请你仔细想想这些词语的意义，而不要理会它们的字形或读音。",
+	questionType:"JP",
+	answer:[
+		{sub_answer:"不受约束",mark:"P"},
+		{sub_answer:"预先安排",mark:"J"}
+	]
+	},
+	//重复数据结束------------------------------
+	
+	//重复数据开始42------------------------------
+	{
+	question:"在下列每一对词语中，哪一个词语更合你心意？请你仔细想想这些词语的意义，而不要理会它们的字形或读音。",
+	questionType:"EI",
+	answer:[
+		{sub_answer:"矜持",mark:"I"},
+		{sub_answer:"健谈",mark:"E"}
+	]
+	},
+	//重复数据结束------------------------------
+	
+	//重复数据开始43------------------------------
+	{
+	question:"在下列每一对词语中，哪一个词语更合你心意？请你仔细想想这些词语的意义，而不要理会它们的字形或读音。",
+	questionType:"JP",
+	answer:[
+		{sub_answer:"有条不紊",mark:"J"},
+		{sub_answer:"不拘小节",mark:"P"}
+	]
+	},
+	//重复数据结束------------------------------
+	
+	//重复数据开始44------------------------------
+	{
+	question:"在下列每一对词语中，哪一个词语更合你心意？请你仔细想想这些词语的意义，而不要理会它们的字形或读音。",
+	questionType:"SN",
+	answer:[
+		{sub_answer:"意念",mark:"N"},
+		{sub_answer:"实况",mark:"S"}
+	]
+	},
+	//重复数据结束------------------------------
+	
+	//重复数据开始45------------------------------
+	{
+	question:"在下列每一对词语中，哪一个词语更合你心意？请你仔细想想这些词语的意义，而不要理会它们的字形或读音。",
+	questionType:"TF",
+	answer:[
+		{sub_answer:"同情怜悯",mark:"F"},
+		{sub_answer:"远见",mark:"T"}
+	]
+	},
+	//重复数据结束------------------------------
+	
+	//重复数据开始46------------------------------
+	{
+	question:"在下列每一对词语中，哪一个词语更合你心意？请你仔细想想这些词语的意义，而不要理会它们的字形或读音。",
+	questionType:"TF",
+	answer:[
+		{sub_answer:"利益",mark:"T"},
+		{sub_answer:"祝福",mark:"F"}
+	]
+	},
+	//重复数据结束------------------------------
+	
+	//重复数据开始47------------------------------
+	{
+	question:"在下列每一对词语中，哪一个词语更合你心意？请你仔细想想这些词语的意义，而不要理会它们的字形或读音。",
+	questionType:"SN",
+	answer:[
+		{sub_answer:"务实的",mark:"S"},
+		{sub_answer:"理论的",mark:"N"}
+	]
+	},
+	//重复数据结束------------------------------
+	
+	//重复数据开始48------------------------------
+	{
+	question:"在下列每一对词语中，哪一个词语更合你心意？请你仔细想想这些词语的意义，而不要理会它们的字形或读音。",
+	questionType:"EI",
+	answer:[
+		{sub_answer:"朋友不多",mark:"I"},
+		{sub_answer:"朋友众多",mark:"E"}
+	]
+	},
+	//重复数据结束------------------------------
+	
+	//重复数据开始49------------------------------
+	{
+	question:"在下列每一对词语中，哪一个词语更合你心意？请你仔细想想这些词语的意义，而不要理会它们的字形或读音。",
+	questionType:"JP",
+	answer:[
+		{sub_answer:"有系统",mark:"J"},
+		{sub_answer:"即兴",mark:"P"}
+	]
+	},
+	//重复数据结束------------------------------
+	
+	//重复数据开始50------------------------------
+	{
+	question:"在下列每一对词语中，哪一个词语更合你心意？请你仔细想想这些词语的意义，而不要理会它们的字形或读音。",
+	questionType:"SN",
+	answer:[
+		{sub_answer:"富想象的",mark:"N"},
+		{sub_answer:"以事论事",mark:"S"}
+	]
+	},
+	//重复数据结束------------------------------
+	
+	//重复数据开始51------------------------------
+	{
+	question:"在下列每一对词语中，哪一个词语更合你心意？请你仔细想想这些词语的意义，而不要理会它们的字形或读音。",
+	questionType:"TF",
+	answer:[
+		{sub_answer:"亲切的",mark:"F"},
+		{sub_answer:"客观的",mark:"T"}
+	]
+	},
+	//重复数据结束------------------------------
+	
+	//重复数据开始52------------------------------
+	{
+	question:"在下列每一对词语中，哪一个词语更合你心意？请你仔细想想这些词语的意义，而不要理会它们的字形或读音。",
+	questionType:"TF",
+	answer:[
+		{sub_answer:"客观的",mark:"T"},
+		{sub_answer:"热情的",mark:"F"}
+	]
+	},
+	//重复数据结束------------------------------
+	
+	//重复数据开始53------------------------------
+	{
+	question:"在下列每一对词语中，哪一个词语更合你心意？请你仔细想想这些词语的意义，而不要理会它们的字形或读音。",
+	questionType:"SN",
+	answer:[
+		{sub_answer:"建造",mark:"S"},
+		{sub_answer:"发明",mark:"N"}
+	]
+	},
+	//重复数据结束------------------------------
+	
+	//重复数据开始54------------------------------
+	{
+	question:"在下列每一对词语中，哪一个词语更合你心意？请你仔细想想这些词语的意义，而不要理会它们的字形或读音。",
+	questionType:"EI",
+	answer:[
+		{sub_answer:"文静",mark:"I"},
+		{sub_answer:"爱合群",mark:"E"}
+	]
+	},
+	//重复数据结束------------------------------
+	
+	//重复数据开始55------------------------------
+	{
+	question:"在下列每一对词语中，哪一个词语更合你心意？请你仔细想想这些词语的意义，而不要理会它们的字形或读音。",
+	questionType:"SN",
+	answer:[
+		{sub_answer:"理论",mark:"N"},
+		{sub_answer:"事实",mark:"S"}
+	]
+	},
+	//重复数据结束------------------------------
+	
+	//重复数据开始56------------------------------
+	{
+	question:"在下列每一对词语中，哪一个词语更合你心意？请你仔细想想这些词语的意义，而不要理会它们的字形或读音。",
+	questionType:"TF",
+	answer:[
+		{sub_answer:"富同情",mark:"F"},
+		{sub_answer:"合逻辑",mark:"T"}
+	]
+	},
+	//重复数据结束------------------------------
+	
+	//重复数据开始57------------------------------
+	{
+	question:"在下列每一对词语中，哪一个词语更合你心意？请你仔细想想这些词语的意义，而不要理会它们的字形或读音。",
+	questionType:"TF",
+	answer:[
+		{sub_answer:"具分析力",mark:"T"},
+		{sub_answer:"多愁善感",mark:"F"}
+	]
+	},
+	//重复数据结束------------------------------
+	
+	//重复数据开始58------------------------------
+	{
+	question:"在下列每一对词语中，哪一个词语更合你心意？请你仔细想想这些词语的意义，而不要理会它们的字形或读音。",
+	questionType:"SN",
+	answer:[
+		{sub_answer:"合情合理",mark:"S"},
+		{sub_answer:"令人着迷",mark:"N"}
+	]
+	},
+	//重复数据结束------------------------------
+	
+	//重复数据开始59------------------------------
+	{
+	question:"当你要在一个星期内完成一个大项目，你在开始的时候就会",
+	questionType:"JP",
+	answer:[
+		{sub_answer:"把要做的不同工作依次列出",mark:"J"},
+		{sub_answer:"马上动工",mark:"P"}
+	]
+	},
+	//重复数据结束------------------------------
+	
+	//重复数据开始60------------------------------
+	{
+	question:"在社交场合中，你经常会感到",
+	questionType:"EI",
+	answer:[
+		{sub_answer:"与某些人很 难打开话匣儿和保持对话",mark:"I"},
+		{sub_answer:"与多数人都能从容地长谈",mark:"E"}
+	]
+	},
+	//重复数据结束------------------------------
+	
+	//重复数据开始61------------------------------
+	{
+	question:"要做许多人也做的事，你比较喜欢",
+	questionType:"SN",
+	answer:[
+		{sub_answer:"按照一般认可的方法去做",mark:"S"},
+		{sub_answer:"构想一个自己的方法",mark:"N"}
+	]
+	},
+	//重复数据结束------------------------------
+	
+	//重复数据开始62------------------------------
+	{
+	question:"你刚认识的朋友能否说出你的兴趣",
+	questionType:"EI",
+	answer:[
+		{sub_answer:"马上可以",mark:"E"},
+		{sub_answer:"要待他们真正了解你之后才可以",mark:"I"}
+	]
+	},
+	//重复数据结束------------------------------
+	
+	//重复数据开始63------------------------------
+	{
+	question:"你通常较喜欢的科目是",
+	questionType:"SN",
+	answer:[
+		{sub_answer:"讲授概念和原则的",mark:"N"},
+		{sub_answer:"讲授事实和数据的",mark:"S"}
+	]
+	},
+	//重复数据结束------------------------------
+	
+	//重复数据开始64------------------------------
+	{
+	question:"哪个是较高的赞誉？获称许为",
+	questionType:"TF",
+	answer:[
+		{sub_answer:"一贯感性的人",mark:"F"},
+		{sub_answer:"一贯理性的人",mark:"T"}
+	]
+	},
+	//重复数据结束------------------------------
+	
+	//重复数据开始65------------------------------
+	{
+	question:"你认为按照程序表做事",
+	questionType:"JP",
+	answer:[
+		{sub_answer:"有时是需要的，但一般来说你不大喜欢这样做",mark:"P"},
+		{sub_answer:"大多数情况下是有帮助而且是你喜欢做的",mark:"J"}
+	]
+	},
+	//重复数据结束-----------------------------
+	
+	//重复数据开始66------------------------------
+	{
+	question:"和一群人在一起，你通常会选",
+	questionType:"EI",
+	answer:[
+		{sub_answer:"跟你很熟络的人个别谈话",mark:"I"},
+		{sub_answer:"参与大伙儿的谈话",mark:"E"}
+	]
+	},
+	//重复数据结束------------------------------
+	
+	//重复数据开始67------------------------------
+	{
+	question:"在社交聚会中，你会",
+	questionType:"EI",
+	answer:[
+		{sub_answer:"是说话很多的一个",mark:"E"},
+		{sub_answer:"让别人多说话",mark:"I"}
+	]
+	},
+	//重复数据结束------------------------------
+	
+	//重复数据开始68------------------------------
+	{
+	question:"把在周末期间要完成的事列成清单，这个主意会",
+	questionType:"JP",
+	answer:[
+		{sub_answer:"合你意",mark:"J"},
+		{sub_answer:"使你提不起劲",mark:"P"}
+	]
+	},
+	//重复数据结束------------------------------
+	
+	//重复数据开始69------------------------------
+	{
+	question:"哪个是较高的赞誉，获称许为",
+	questionType:"TF",
+	answer:[
+		{sub_answer:"能干的",mark:"T"},
+		{sub_answer:"富有同情心的",mark:"F"}
+	]
+	},
+	//重复数据结束------------------------------
+	
+	//重复数据开始70------------------------------
+	{
+	question:"你通常喜欢",
+	questionType:"JP",
+	answer:[
+		{sub_answer:"事先安排你的社交约会",mark:"J"},
+		{sub_answer:"随兴所至做事",mark:"P"}
+	]
+	},
+	//重复数据结束------------------------------
+	
+	//重复数据开始71------------------------------
+	{
+	question:"总的来说，要做一个大型作业时，你会选",
+	questionType:"JP",
+	answer:[
+		{sub_answer:"边做边想该做什么",mark:"P"},
+		{sub_answer:"首先把工作按步细分",mark:"J"}
+	]
+	},
+	//重复数据结束-----------------------------
+	
+	//重复数据开始72------------------------------
+	{
+	question:"你能否滔滔不绝地与人聊天",
+	questionType:"EI",
+	answer:[
+		{sub_answer:"只限于跟你有共同兴趣的人",mark:"I"},
+		{sub_answer:"几乎跟任何人都可以",mark:"E"}
+	]
+	},
+	//重复数据结束------------------------------
+	
+	//重复数据开始73------------------------------
+	{
+	question:"你会",
+	questionType:"SN",
+	answer:[
+		{sub_answer:"跟随一些证明有效的方法",mark:"S"},
+		{sub_answer:"分析还有什么毛病，及针对尚未解决的难题",mark:"N"}
+	]
+	},
+	//重复数据结束------------------------------
+	
+	//重复数据开始74------------------------------
+	{
+	question:"为乐趣而阅读时，你会",
+	questionType:"SN",
+	answer:[
+		{sub_answer:"喜欢奇特或创新的表达方式",mark:"N"},
+		{sub_answer:"喜欢作者直话直说",mark:"S"}
+	]
+	},
+	//重复数据结束------------------------------
+	
+	//重复数据开始75------------------------------
+	{
+	question:"你宁替哪一类上司（或者老师）工作",
+	questionType:"TF",
+	answer:[
+		{sub_answer:"天性淳良，但常常前后不一的",mark:"F"},
+		{sub_answer:"言辞尖锐但永远合逻辑的",mark:"T"}
+	]
+	},
+	//重复数据结束------------------------------
+	
+	//重复数据开始76------------------------------
+	{
+	question:"你做事多数是",
+	questionType:"JP",
+	answer:[
+		{sub_answer:"按当天心情去做",mark:"P"},
+		{sub_answer:"照拟好的程序表去做",mark:"J"}
+	]
+	},
+	//重复数据结束-----------------------------
+	
+	//重复数据开始77------------------------------
+	{
+	question:"你是否",
+	questionType:"EI",
+	answer:[
+		{sub_answer:"可以与任何人按需要从容地交谈",mark:"E"},
+		{sub_answer:"只是对某些人或在某种情况下才可以畅所欲言",mark:"I"}
+	]
+	},
+	//重复数据结束------------------------------
+	
+	//重复数据开始78------------------------------
+	{
+	question:"要作决定时，你认为比较重要的是",
+	questionType:"TF",
+	answer:[
+		{sub_answer:"据事实衡量",mark:"T"},
+		{sub_answer:"考虑他人的感受和意见",mark:"F"}
+	]
+	},
+	//重复数据结束------------------------------
+	
+	//重复数据开始79------------------------------
+	{
+	question:"在下列每一对词语中，哪一个词语更合你心意？请你仔细想想这些词语的意义，而不要理会它们的字形或读音",
+	questionType:"SN",
+	answer:[
+		{sub_answer:"想象的",mark:"N"},
+		{sub_answer:"真实的",mark:"S"}
+	]
+	},
+	//重复数据结束------------------------------
+	
+	//重复数据开始80------------------------------
+	{
+	question:"在下列每一对词语中，哪一个词语更合你心意？请你仔细想想这些词语的意义，而不要理会它们的字形或读音",
+	questionType:"TF",
+	answer:[
+		{sub_answer:"仁慈慷慨的",mark:"F"},
+		{sub_answer:"意志坚定的",mark:"T"}
+	]
+	},
+	//重复数据结束------------------------------
+	
+	//重复数据开始81------------------------------
+	{
+	question:"在下列每一对词语中，哪一个词语更合你心意？请你仔细想想这些词语的意义，而不要理会它们的字形或读音",
+	questionType:"TF",
+	answer:[
+		{sub_answer:"公正的",mark:"T"},
+		{sub_answer:"有关怀心",mark:"F"}
+	]
+	},
+	//重复数据结束------------------------------
+	
+	
+	//重复数据开始82------------------------------
+	{
+	question:"在下列每一对词语中，哪一个词语更合你心意？请你仔细想想这些词语的意义，而不要理会它们的字形或读音",
+	questionType:"SN",
+	answer:[
+		{sub_answer:"制作",mark:"S"},
+		{sub_answer:"设计",mark:"N"}
+	]
+	},
+	//重复数据结束------------------------------
+	
+	//重复数据开始83------------------------------
+	{
+	question:"在下列每一对词语中，哪一个词语更合你心意？请你仔细想想这些词语的意义，而不要理会它们的字形或读音",
+	questionType:"SN",
+	answer:[
+		{sub_answer:"可能性",mark:"N"},
+		{sub_answer:"必然性",mark:"S"}
+	]
+	},
+	//重复数据结束------------------------------
+	
+	//重复数据开始84------------------------------
+	{
+	question:"在下列每一对词语中，哪一个词语更合你心意？请你仔细想想这些词语的意义，而不要理会它们的字形或读音",
+	questionType:"TF",
+	answer:[
+		{sub_answer:"温柔",mark:"F"},
+		{sub_answer:"力量",mark:"T"}
+	]
+	},
+	//重复数据结束------------------------------
+	
+	//重复数据开始85------------------------------
+	{
+	question:"在下列每一对词语中，哪一个词语更合你心意？请你仔细想想这些词语的意义，而不要理会它们的字形或读音",
+	questionType:"TF",
+	answer:[
+		{sub_answer:"实际",mark:"T"},
+		{sub_answer:"多愁善感",mark:"F"}
+	]
+	},
+	//重复数据结束------------------------------
+	
+	//重复数据开始86------------------------------
+	{
+	question:"在下列每一对词语中，哪一个词语更合你心意？请你仔细想想这些词语的意义，而不要理会它们的字形或读音",
+	questionType:"SN",
+	answer:[
+		{sub_answer:"制造",mark:"S"},
+		{sub_answer:"创造",mark:"N"}
+	]
+	},
+	//重复数据结束------------------------------
+	
+	//重复数据开始87------------------------------
+	{
+	question:"在下列每一对词语中，哪一个词语更合你心意？请你仔细想想这些词语的意义，而不要理会它们的字形或读音",
+	questionType:"SN",
+	answer:[
+		{sub_answer:"新颖的",mark:"N"},
+		{sub_answer:"已知的",mark:"S"}
+	]
+	},
+	//重复数据结束------------------------------
+	
+	//重复数据开始88------------------------------
+	{
+	question:"在下列每一对词语中，哪一个词语更合你心意？请你仔细想想这些词语的意义，而不要理会它们的字形或读音",
+	questionType:"TF",
+	answer:[
+		{sub_answer:"同情",mark:"F"},
+		{sub_answer:"分析 ",mark:"T"}
+	]
+	},
+	//重复数据结束------------------------------
+	
+	//重复数据开始89------------------------------
+	{
+	question:"在下列每一对词语中，哪一个词语更合你心意？请你仔细想想这些词语的意义，而不要理会它们的字形或读音",
+	questionType:"TF",
+	answer:[
+		{sub_answer:"坚持己见",mark:"T"},
+		{sub_answer:"温柔有爱心",mark:"F"}
+	]
+	},
+	//重复数据结束------------------------------
+	
+	//重复数据开始90------------------------------
+	{
+	question:"在下列每一对词语中，哪一个词语更合你心意？请你仔细想想这些词语的意义，而不要理会它们的字形或读音",
+	questionType:"SN",
+	answer:[
+		{sub_answer:"具体的",mark:"S"},
+		{sub_answer:"抽象的",mark:"N"}
+	]
+	},
+	//重复数据结束------------------------------
+	
+	//重复数据开始91------------------------------
+	{
+	question:"在下列每一对词语中，哪一个词语更合你心意？请你仔细想想这些词语的意义，而不要理会它们的字形或读音",
+	questionType:"TF",
+	answer:[
+		{sub_answer:"全心投入",mark:"F"},
+		{sub_answer:"有决心的 ",mark:"T"}
+	]
+	},
+	//重复数据结束------------------------------
+	
+	//重复数据开始92------------------------------
+	{
+	question:"在下列每一对词语中，哪一个词语更合你心意？请你仔细想想这些词语的意义，而不要理会它们的字形或读音",
+	questionType:"TF",
+	answer:[
+		{sub_answer:"能干",mark:"T"},
+		{sub_answer:"仁慈",mark:"F"}
+	]
+	},
+	//重复数据结束------------------------------
+	
+	//重复数据开始93------------------------------
+	{
+	question:"在下列每一对词语中，哪一个词语更合你心意？请你仔细想想这些词语的意义，而不要理会它们的字形或读音",
+	questionType:"SN",
+	answer:[
+		{sub_answer:"实际",mark:"S"},
+		{sub_answer:"创新",mark:"N"}
+	]
+	},
+	//重复数据结束------------------------------
+	
+
+]
+
+var Examination={
+	title:"MBTI测试",//题库名称
+	posts:"UI前端职业性格测试",//应聘岗位
+	tester:"",//测试者
+	score:0,//测试得分
+	character:null,//性格特征
+	question:[],//题库问题集合
+	answer:[],//答案集合
+
+	totallimitTime:30*60,//考试限制时间(秒)
+	questionlimitTime:20,//考试限制时间(秒)	
+	countTimer:function(targetObj,totalTime,stype){  //倒计时封装 ，targetObj：计时容器；totalTime：设置时间以秒为单位（45*60表示45分钟）；stype：（1：分 秒显示模式；0：秒模式）
+		var times = totalTime;//剩余时间,单位秒
+		var targetObj=(typeof(targetObj)=="string")?document.getElementById(targetObj):targetObj
+		var timeDiv =targetObj;
+		var timeObj = null;
+
+		function timer(){
+			if(times< 0){
+				//倒计时结束，提交表单
+				//document.getElementById("frm").submit();				
+				window.clearInterval(timeObj);
+				alert("考试超时,强制终止！")
+				return;
+			}
+			if(stype==1){//分、秒统计时间
+			var t = Math.floor(times/60) +"分"+times%60+"秒"
+			}else{
+				var t = times+"秒"
+			}			
+			timeDiv.innerHTML ="剩余时间："+ t;
+			times --;
+			
+		}
+		timeObj = window.setInterval(timer,1000);
+	},
+	Grandom:function(m,n){  //随即返回一个范围的随机数 
+		return Math.round(Math.random() * (n - m) + m);  
+	},
+	getResult:function(sType){  //获取指定类别的各个指标数目 
+		var sTypeTotal=0;//性格类型总题目数
+		var sTypeTotal1=0;//性格类型指标1目数
+		var sTypeTotal2=0;//性格类型指标2目数
+		var sType1=sType.split("")[0]
+		var sType2=sType.split("")[1]
+		var ctds=document.getElementById("table1").getElementsByTagName("td")
+		for(i=0;i<ctds.length;i++) {
+			if (ctds[i].getAttribute("stype")==sType){
+				sTypeTotal++
+				if (ctds[i].getAttribute("sresult")==sType1){
+					sTypeTotal1++
+				}
+			}
+		}
+		sTypeTotal2=sTypeTotal-sTypeTotal1
+		return sType1+":"+sTypeTotal1+" "+sType2+":"+sTypeTotal2
+	},
+
+	getResult2:function(){  //获取指定类别的各个指标数目 
+		var sTypeItem=[
+			{
+			type:"EI",			
+			subtype1:"E",			
+			subtype2:"I",
+			characteristic1:"外向",
+			characteristic2:"内向",
+			typeCount:0,//IE性格总数量
+			subTypeCount1:0,//I性格数量
+			subTypeCount2:0,//E性格数量
+			towards:null,//性格趋向
+			grade:null,//倾向明显程度指标(轻微：11-13；中等：14-16；明显：17-19；非常明显：20-21)
+			},
+		
+			{
+			type:"SN",
+			subtype1:"S",
+			subtype2:"N",
+			characteristic1:"感觉",
+			characteristic2:"直觉",
+			typeCount:0,
+			subTypeCount1:0,
+			subTypeCount2:0,
+			towards:null,
+			grade:null,//倾向明显程度指标(轻微：13-15；中等：16-20；明显：21-24；非常明显：25-26)
+			},
+			{
+			type:"TF",
+			subtype1:"T",
+			subtype2:"F",
+			characteristic1:"思考",
+			characteristic2:"情感",
+			typeCount:0,
+			subTypeCount1:0,
+			subTypeCount2:0,
+			towards:null,
+			grade:null,//倾向明显程度指标(轻微：12-14；中等：15-18；明显：19-22；非常明显：23-24)
+			},
+			{
+			type:"JP",
+			subtype1:"J",
+			subtype2:"P",
+			characteristic1:"判断",
+			characteristic2:"知觉",
+			typeCount:0,
+			subTypeCount1:0,
+			subTypeCount2:0,
+			towards:null,
+			grade:null,//倾向明显程度指标(轻微：11-13；中等：14-16；明显：17-20；非常明显：21-22)
+			},
+		];
+
+
+		var ctds=document.getElementById("table1").getElementsByTagName("td")
+		for(i=0;i<ctds.length;i++) {
+			
+			for (j=0; j<sTypeItem.length;j++ ){
+				var sType=sTypeItem[j].type;
+				var subtype1=sTypeItem[j].subtype1;
+				var subtype2=sTypeItem[j].subtype2;
+				var typeCount=sTypeItem[j].typeCount;
+				var subTypeCount1=sTypeItem[j].subTypeCount1;
+				var subTypeCount2=sTypeItem[j].subTypeCount2;
+				var towards=sTypeItem[j].towards;
+
+
+
+				if (ctds[i].getAttribute("stype")==sType){
+					typeCount++;
+					sTypeItem[j].typeCount=typeCount;
+					if (ctds[i].getAttribute("sresult")==subtype1){
+						subTypeCount1++;
+						sTypeItem[j].subTypeCount1=subTypeCount1;					
+					}else if (ctds[i].getAttribute("sresult")==subtype2){
+						subTypeCount2++;
+						sTypeItem[j].subTypeCount2=subTypeCount2;
+					}
+					if (sTypeItem[j].subTypeCount1>sTypeItem[j].subTypeCount2){
+						towards=subtype1;
+						sTypeItem[j].towards=towards;
+					}else{
+						towards=subtype2;
+						sTypeItem[j].towards=towards;
+					}
+				}
+			}
+			
+		}
+		return sTypeItem;//返回结果数组
+	},
+	
+}
+
+
+function parseResult000(sTypeItem){
+	var str="";
+	var character="";//性格特征
+
+
+	for (j=0; j<sTypeItem.length;j++ ){
+		var sType=sTypeItem[j].type;
+		var subtype1=sTypeItem[j].subtype1;
+		var subtype2=sTypeItem[j].subtype2;
+		var typeCount=sTypeItem[j].typeCount;
+		var subTypeCount1=sTypeItem[j].subTypeCount1;
+		var subTypeCount2=sTypeItem[j].subTypeCount2;
+		var towards=sTypeItem[j].towards;
+		/*
+		var quxiang="";
+		if (subTypeCount1>subTypeCount2){
+			quxiang=subtype1
+		}else{
+			quxiang=subtype2		
+		}
+		str+=sType+"["+typeCount+"]:"+subtype1+"["+subTypeCount1+"] "+subtype2+"["+subTypeCount2+"]"+" 趋向："+quxiang+"\n";
+		*/
+		str+=sType+"["+typeCount+"]:"+subtype1+"["+subTypeCount1+"] "+subtype2+"["+subTypeCount2+"]"+" 趋向："+towards+"\n";
+		character+=towards
+	}
+	alert(str+" 性格特点:"+character)
+
+}
+
+
+function parseResult(sTypeItem) {
+    var tablestr = ""
+    var str = "";
+    var character = "";//性格特征
+
+    tablestr += "<table border=1 width=98%>"
+    tablestr += "<tr>"
+    tablestr += "<td>分类指标</td>"
+    tablestr += "<td>指标分项</td>"
+    tablestr += "<td>分项得分</td>"
+    tablestr += "<td>性格特征</td>"
+    tablestr += "</tr>"
+
+    for (j = 0; j < sTypeItem.length; j++) {
+        var sType = sTypeItem[j].type;
+
+        var subtype1 = sTypeItem[j].subtype1;
+        var subtype2 = sTypeItem[j].subtype2;
+        var characteristic1 = sTypeItem[j].characteristic1;
+        var characteristic2 = sTypeItem[j].characteristic2;
+        var typeCount = sTypeItem[j].typeCount;
+        var subTypeCount1 = sTypeItem[j].subTypeCount1;
+        var subTypeCount2 = sTypeItem[j].subTypeCount2;
+        var towards = sTypeItem[j].towards;//性格倾向
+
+        tablestr += "<tr>"
+        tablestr += "<td rowspan=2>" + sType + "(" + typeCount + ")" + "</td>"
+        tablestr += "<td>" + subtype1 + "(" + characteristic1 + ")" + "</td>"
+        tablestr += "<td>" + subTypeCount1 + "</td>"
+        if (towards == subtype1) {
+            tablestr += "<td rowspan=2>" + towards + "(" + characteristic1 + ")" + "</td>"
+        } else {
+            tablestr += "<td rowspan=2>" + towards + "(" + characteristic2 + ")" + "</td>"
+        }
+        tablestr += "</tr>"
+        tablestr += "<tr>"
+        tablestr += "<td>" + subtype2 + "(" + characteristic2 + ")" + "</td>"
+        tablestr += "<td>" + subTypeCount2 + "</td>"
+        tablestr += "</tr>"
+
+
+        str += sType + "[" + typeCount + "]:" + subtype1 + "[" + subTypeCount1 + "] " + subtype2 + "[" + subTypeCount2 + "]" + " 趋向：" + towards + "\n";
+        character += towards
+    }
+    //alert(str+" 性格特点:"+character)
+
+    tablestr += "</table>";
+    document.getElementById("charter").innerHTML = "性格特征：" + character;
+    document.getElementById("detail").innerHTML = tablestr;
+}
+</script>
+
+
+
+
+</head>  
+<body> 
+<div class="head_nav">
+	<div class="webtitle"><script>document.write(Examination.title)</script><span id=t1></span></div>
+	<div class="countTimer" id="countTimer">倒计时：45分钟</div>
+</div>
+
+<div class="left_nav" id="left_nav">
+	<div class="userInfo" id="userInfo"></div>
+	<div class="guide" id="guide"></div>
+	<div class="userInfo">测试结果：</div>
+	<div id="exam_result">
+		<div class="userInfo lt"  id="charter">性格特征：</div>
+		<div class="userInfo lt" id="detail"></div>
+	</div>
+</div>
+
+<div class="maincontainer" id="maincontainer"></div>
+<div class="bottom_nav" id="bottom_nav">
+<!--
+	<div class="large_button blue" onclick="pangenav(-1)">上页</div>
+	<div class="large_button orange" onclick="parseResult(Examination.getResult2())">提交</div>
+	<div class="large_button blue" onclick="pangenav(1)">下页</div>
+-->
+</div>
+
+<script>
+var pagenumber=0
+document.getElementById("userInfo").innerHTML="测试者："+Examination.tester;
+
+//分秒计时
+Examination.countTimer("countTimer",Examination.totallimitTime,1)
+//秒计时
+//Examination.countTimer("t1",10,0)
+
+//左边标记表格
+function buildernav(n){
+	var rowNum=8;
+	var str="<table align=center border=1 id='table1'>"
+	for (i=0;i<question1.length ;i++ ){
+	if (i%rowNum==0){
+		str+="<tr>"
+	}
+		str+="<td width=25 align=center>"+(i+1)+"</td>"
+	}
+	str+="</table>"
+	document.getElementById("guide").innerHTML=str;
+}
+
+
+//创建内容区域
+function builder(){
+	var str="<div class='content'>"
+	var index0=0;
+	for(i=0;i<question1.length;i++){
+		index0++
+		str+="<ul>["+index0+"]"+question1[i].question
+		for(j=0;j<question1[i].answer.length;j++){		
+				//str+="<dd><input type='radio' name='q"+i+"' value='"+j+"' onclick='setMark("+i+","+j+")'>"+question1[i].answer[j].sub_answer+"</dd>";
+				str+="<li><label><input type='radio' id='q"+i+"_"+j+"' name='q"+i+"' value='"+j+"' onclick='setMark("+i+","+j+")'>"+question1[i].answer[j].sub_answer+"</label></li>"
+		
+			
+		}
+		str+="</ul>"
+	}
+	str+="</div>"
+	document.getElementById("maincontainer").innerHTML=str
+}
+builder();//考试内容
+buildernav(80);//左边标记表格
+
+//标记左边导航点状态
+function setMark(qindex,value){
+	var stype=question1[qindex].questionType
+	var sresult=question1[qindex].answer[value].mark
+	var ctable=document.getElementById("table1")
+	var ctd=ctable.getElementsByTagName("td")[qindex]
+	ctd.setAttribute("stype",stype)
+	ctd.setAttribute("sresult",sresult)
+	ctd.setAttribute("class","finished") 
+}
+
+/**
+ * 分页函数
+ * pno--页数
+ * psize--每页显示记录数
+ * 分页部分是从真实数据行开始，因而存在加减某个常数，以确定真正的记录数
+ * 纯js分页实质是数据行全部加载，通过是否显示属性完成分页功能
+ **/
+function goPage(pno,psize){
+    var itable = document.getElementById("maincontainer");
+    var num = itable.getElementsByTagName("ul").length;//表格所有行数(所有记录数)
+    console.log(num);
+    var totalPage = 0;//总页数
+    var pageSize = psize;//每页显示行数
+    //总共分几页 
+    if(num/pageSize > parseInt(num/pageSize)){   
+            totalPage=parseInt(num/pageSize)+1;   
+       }else{   
+           totalPage=parseInt(num/pageSize);   
+       }   
+    var currentPage = pno;//当前页数
+    var startRow = (currentPage - 1) * pageSize+1;//开始显示的行 
+       var endRow = currentPage * pageSize;//结束显示的行
+       endRow = (endRow > num)? num : endRow;
+       console.log(endRow);
+       //遍历显示数据实现分页
+    for(var i=1;i<(num+1);i++){    
+        var irow = itable.getElementsByTagName("ul")[i-1];
+        if(i>=startRow && i<=endRow){
+            irow.style.display = "block";    
+        }else{
+            irow.style.display = "none";
+        }
+    }
+    var pageEnd = document.getElementById("pageEnd");
+    var tempStr = "共"+num+"条记录 分"+totalPage+"页 当前第"+currentPage+"页";
+    if(currentPage>1){
+        tempStr += "<div class='large_button blue' onClick=\"goPage("+(1)+","+psize+")\">首页</div>";
+        tempStr += "<div class='large_button blue' onClick=\"goPage("+(currentPage-1)+","+psize+")\">上一页</div>"
+		
+    }else{
+        tempStr += "<div class='large_button'>首页</div>";
+        tempStr += "<div class='large_button'>上一页</div>";    
+    }
+
+    if(currentPage<totalPage){
+
+        tempStr += "<div class='large_button blue' onClick=\"goPage("+(currentPage+1)+","+psize+")\">下一页</div>";
+        tempStr += "<div class='large_button blue' onClick=\"goPage("+(totalPage)+","+psize+")\">尾页</div>";
+    }else{
+        tempStr += "<div class='large_button'>下一页</div>";
+        tempStr += "<div class='large_button'>尾页</div>";    
+    }
+	tempStr += "<div class='large_button orange' onclick=\"parseResult(Examination.getResult2())\">我要交卷</div>";  
+
+    document.getElementById("bottom_nav").innerHTML = tempStr;    
+}
+
+goPage(1,6);//默认显示第一页
+
+</script> 
+
+</body>  
+</html>  

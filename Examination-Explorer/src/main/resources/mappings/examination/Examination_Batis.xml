@@ -1,0 +1,61 @@
+<?xml version="1.0" encoding="UTF-8" ?>
+<!DOCTYPE mapper PUBLIC "-//mybatis.org//DTD Mapper 3.0//EN" "http://mybatis.org/dtd/mybatis-3-mapper.dtd">
+<mapper namespace="com.assassin.modules.examination.dao.ExaminationDao">
+    <insert id="insertQuestion" parameterType="com.assassin.modules.examination.entity.ExaminationQuestionEntity">
+        <selectKey resultType="Long" keyProperty="bsm" order="BEFORE" >
+            <choose>
+                <when test="bsm!=null">
+                    select #{bsm} from dual
+                </when>
+                <otherwise>
+                    select seq_bsm.nextVal from dual
+                </otherwise>
+            </choose>
+        </selectKey>
+        insert into t_kstm(bsm,tmmc,tmlx,kslx,gxsj)
+        values(#{bsm},#{tmmc},#{tmlx},#{kslx},sysdate)
+    </insert>
+    <insert id="insertAnswer" parameterType="com.assassin.modules.examination.entity.ExaminationAnswerEntity">
+        <selectKey resultType="Long" keyProperty="bsm" order="BEFORE" >
+            <choose>
+                <when test="bsm!=null">
+                    select #{bsm} from dual
+                </when>
+                <otherwise>
+                    select seq_bsm.nextVal from dual
+                </otherwise>
+            </choose>
+        </selectKey>
+        insert into t_kstm_da(bsm,kstmbsm,danr,dalx,gxsj)
+        values (#{bsm},#{kstmbsm},#{danr},#{dalx},sysdate)
+    </insert>
+
+    <insert id="insertAnswerBatch" parameterType="java.util.List">
+        begin
+        <foreach collection="list" item="item">
+            insert into t_kstm_da(bsm,kstmbsm,danr,dalx,gxsj)
+            values (seq_bsm.nextval,#{item.kstmbsm},#{item.danr},#{item.dalx},sysdate);
+        </foreach>
+        end;
+
+    </insert>
+
+    <resultMap id="resultQuestion" type="com.assassin.modules.examination.entity.ExaminationQuestionEntity">
+        <id property="bsm" column="bsm"></id>
+        <result property="tmmc" column="tmmc"></result>
+        <result property="tmlx" column="tmlx"></result>
+        <result property="kslx" column="kslx"></result>
+        <collection property="examinationAnswerEntityList" ofType="com.assassin.modules.examination.entity.ExaminationAnswerEntity">
+            <id property="bsm" column="kstmdabsm"></id>
+            <result property="kstmbsm" column="kstmbsm"></result>
+            <result property="danr" column="danr"></result>
+            <result property="dalx" column="dalx"></result>
+        </collection>
+    </resultMap>
+
+    <select id="selectAllQuestion" resultMap="resultQuestion">
+        select a.bsm,a.tmmc,a.tmlx,a.kslx,b.bsm as kstmdabsm,b.kstmbsm,b.danr,b.dalx from t_kstm a
+        inner join t_kstm_da b on a.bsm=b.kstmbsm
+    </select>
+
+</mapper>
