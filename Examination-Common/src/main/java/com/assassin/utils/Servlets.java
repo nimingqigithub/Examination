@@ -5,7 +5,7 @@
  */
 package com.assassin.utils;
 
-import com.assassin.utils.Global;
+import com.assassin.common.Global;
 import com.google.common.net.HttpHeaders;
 import org.apache.commons.lang3.Validate;
 import org.springframework.web.context.request.RequestContextHolder;

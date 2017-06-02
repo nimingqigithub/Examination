@@ -19,13 +19,11 @@
 <%--    <script src="${ctx}/htmlsource/js/plugins/pace/pace.min.js"></script>--%>
 
     <link href="${ctx}/htmlsource/css/plugins/dataTables/datatables.min.css" rel="stylesheet">
-
     <link href="${ctx}/htmlsource/css/animate.css" rel="stylesheet">
-    <link href="${ctx}/htmlsource/css/style.css" rel="stylesheet">
     <style type="text/css">
         .newbody {
             font-family: "open sans", "Helvetica Neue", Helvetica, Arial, sans-serif;
-            background-color: #2f4050;
+            background-color: transparent;
             font-size: 13px;
             color: #676a6c;
             overflow-x: hidden;

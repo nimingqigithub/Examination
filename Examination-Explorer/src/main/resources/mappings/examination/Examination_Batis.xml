@@ -54,8 +54,14 @@
     </resultMap>
 
     <select id="selectAllQuestion" resultMap="resultQuestion">
-        select a.bsm,a.tmmc,a.tmlx,a.kslx,b.bsm as kstmdabsm,b.kstmbsm,b.danr,b.dalx from t_kstm a
-        inner join t_kstm_da b on a.bsm=b.kstmbsm
+        <include refid="selectAllQuestionSql"></include>
     </select>
+
+
+    <sql id="selectAllQuestionSql">
+          select a.bsm,a.tmmc,a.tmlx,a.kslx,b.bsm as kstmdabsm,b.kstmbsm,b.danr,b.dalx from t_kstm a
+        inner join t_kstm_da b on a.bsm=b.kstmbsm
+    </sql>
+
 
 </mapper>

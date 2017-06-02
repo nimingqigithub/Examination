@@ -10,9 +10,6 @@
           <element id="archive" name="Examination-Common-1.0.0.jar">
             <element id="module-output" name="Examination-Common" />
           </element>
-          <element id="archive" name="Examination-Constants-1.0.0.jar">
-            <element id="module-output" name="Examination-Constants" />
-          </element>
           <element id="library" level="project" name="Maven: com.atomikos:transactions-jdbc:3.7.0" />
           <element id="library" level="project" name="Maven: com.atomikos:transactions-jta:3.7.0" />
           <element id="library" level="project" name="Maven: com.atomikos:transactions:3.7.0" />
@@ -99,6 +96,9 @@
           <element id="library" level="project" name="Maven: org.apache.shiro:shiro-core:1.2.3" />
           <element id="library" level="project" name="Maven: dom4j:dom4j:1.6.1" />
           <element id="library" level="project" name="Maven: xml-apis:xml-apis:1.0.b2" />
+          <element id="archive" name="Examination-Constants-1.0.0.jar">
+            <element id="module-output" name="Examination-Constants" />
+          </element>
         </element>
       </element>
       <element id="directory" name="META-INF">

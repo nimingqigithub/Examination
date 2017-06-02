@@ -2,7 +2,7 @@
 <%@ include file="../include/taglib.jsp"%>
 <html>
 <head>
-    <title>svn管理系统</title>
+    <title>考试管理系统</title>
 </head>
 <body>
 <div id="wrapper">
@@ -11,17 +11,17 @@
             <ul class="nav metismenu" id="side-menu">
                 <li class="nav-header">
                     <div class="dropdown profile-element"> <span>
-                            <img alt="image" class="img-circle" src="${ctx}/htmlsource/img/profile_small.jpg" />
+                            <img alt="image" class="img-circle" src="${ctx}/htmlsource/img/assassin3.jpg" />
                              </span>
                         <a data-toggle="dropdown" class="dropdown-toggle" href="#">
-                            <span class="clear"> <span class="block m-t-xs"> <strong class="font-bold">David Williams</strong>
-                             </span> <span class="text-muted text-xs block">Art Director <b class="caret"></b></span> </span> </a>
+                            <span class="clear"> <span class="block m-t-xs"> <strong class="font-bold">${staffname}</strong>
+                             </span> <span class="text-muted text-xs block">超级管理员 <b class="caret"></b></span> </span> </a>
                         <ul class="dropdown-menu animated fadeInRight m-t-xs">
-                            <li><a href="profile.html">Profile</a></li>
+<%--                            <li><a href="profile.html">Profile</a></li>
                             <li><a href="contacts.html">Contacts</a></li>
                             <li><a href="mailbox.html">Mailbox</a></li>
-                            <li class="divider"></li>
-                            <li><a href="login?type=1">注销</a></li>
+                            <li class="divider"></li>--%>
+                            <li><a href="login?type=1" target='_parent'><i class="fa fa-sign-out fa-fw"></i> 注销</a></li>
                         </ul>
                     </div>
                     <div class="logo-element">
@@ -33,7 +33,7 @@
                     <ul class="nav nav-second-level">
                         <li class="active"><a href="javascript:setIframe('register')">用户注册</a></li>
                         <li><a href="javascript:setIframe('userManage')">用户信息管理</a></li>
-                        <li><a href="dashboard_3.html">密码修改</a></li>
+                        <li><a href="javascript:setIframe('examin_login')">考试</a></li>
                     </ul>
                 </li>
             </ul>
@@ -51,14 +51,11 @@
                         </div>
                     </form>
                 </div>
-
-
                 <ul class="nav navbar-top-links navbar-right">
                     <li>
                         <span class="m-r-sm text-muted welcome-message">欢迎您， ${staffname}</span>
                     </li>
                     <li class="dropdown">
-
                         <a class="dropdown-toggle" data-toggle="dropdown" href="#">
                             <i class="fa fa-user fa-fw"></i> <i class="fa fa-caret-down"></i>
                         </a>
@@ -79,7 +76,7 @@
         <div  class="row">
             <div class="col-lg-12">
                 <div class="wrapper wrapper-content">
-                    <iframe id="iframeText" style="border:none;overflow:hidden"  src="" width="100%" height="500"></iframe>
+                    <iframe id="iframeText" style="border:none;overflow:hidden"  src="" width="100%"></iframe>
                 </div>
                 <div id="rowFoot" class="footer">
                     <div class="pull-right">

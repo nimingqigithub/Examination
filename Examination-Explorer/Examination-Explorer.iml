@@ -26,7 +26,6 @@
     <orderEntry type="inheritedJdk" />
     <orderEntry type="sourceFolder" forTests="false" />
     <orderEntry type="module" module-name="Examination-Common" />
-    <orderEntry type="module" module-name="Examination-Constants" />
     <orderEntry type="library" name="Maven: com.atomikos:transactions-jdbc:3.7.0" level="project" />
     <orderEntry type="library" name="Maven: com.atomikos:transactions-jta:3.7.0" level="project" />
     <orderEntry type="library" name="Maven: com.atomikos:transactions:3.7.0" level="project" />
@@ -63,8 +62,6 @@
     <orderEntry type="library" name="Maven: opensymphony:sitemesh:2.4.2" level="project" />
     <orderEntry type="library" name="Maven: taglibs:standard:1.1.2" level="project" />
     <orderEntry type="library" name="Maven: javax.servlet:jstl:1.2" level="project" />
-    <orderEntry type="library" scope="PROVIDED" name="Maven: javax.servlet.jsp:jsp-api:2.1" level="project" />
-    <orderEntry type="library" scope="PROVIDED" name="Maven: javax.servlet:javax.servlet-api:3.1.0" level="project" />
     <orderEntry type="library" name="Maven: net.sf.ehcache:ehcache-core:2.6.9" level="project" />
     <orderEntry type="library" name="Maven: net.sf.ehcache:ehcache-web:2.0.4" level="project" />
     <orderEntry type="library" name="Maven: redis.clients:jedis:2.5.1" level="project" />
@@ -115,5 +112,8 @@
     <orderEntry type="library" name="Maven: org.apache.shiro:shiro-core:1.2.3" level="project" />
     <orderEntry type="library" name="Maven: dom4j:dom4j:1.6.1" level="project" />
     <orderEntry type="library" name="Maven: xml-apis:xml-apis:1.0.b2" level="project" />
+    <orderEntry type="module" module-name="Examination-Constants" />
+    <orderEntry type="library" scope="PROVIDED" name="Maven: javax.servlet.jsp:jsp-api:2.1" level="project" />
+    <orderEntry type="library" scope="PROVIDED" name="Maven: javax.servlet:javax.servlet-api:3.1.0" level="project" />
   </component>
 </module>
