@@ -35,6 +35,7 @@
         .btn-default2{
             background-color: #cacaca;
         }
+
     </style>
 </head>
 <body class="newbody">
@@ -45,7 +46,8 @@
             <button class="btn btn-success btn-sm" type="submit">提交答案</button>
         </div>
         <div class="row">
-            <label class="form-control">测试者：${staffname}</label>
+            <label class="control-label">1231231</label>
+            <label class="control-label">测试者：${staffname}</label>
         </div>
         <div class="row">
             <div class="tooltip-demo" style="height: 500px;">
@@ -62,8 +64,6 @@
     <div class="col-sm-4">
     </div>
     <div class="col-sm-8">
-
-
         <div id="divQuestion" style="height: 500px;overflow-y: auto;overflow-x: hidden">
             <c:forEach var="question" items="${questionList}" varStatus="status">
                 <div class="row" >
@@ -109,7 +109,7 @@
         var bsm = $(obj).attr("tmbsm");
         var locationObj = $("label[tmbsm='"+bsm+"']");
         //$("#divQuestion").animate({scrollTop:locationObj.offsetTop},"slow");
-        //$("#divQuestion").scrollToExtendInit();
+        //$("#divQuestion").scrolToExtendInit();
         $("#divQuestion").scrollToExtend(locationObj);
 
     }
@@ -125,5 +125,32 @@
         return this.scrollTo(top - 30 ,200);
     };
 
+</script>
+<script type="text/javascript">
+    var lsttimer = function(targetObj,totalTime,stype){  //倒计时封装 ，targetObj：计时容器；totalTime：设置时间以秒为单位（45*60表示45分钟）；stype：（1：分 秒显示模式；0：秒模式）
+        var times = totalTime;//剩余时间,单位秒
+        var targetObj=(typeof(targetObj)=="string")?document.getElementById(targetObj):targetObj
+        var timeDiv =targetObj;
+        var timeObj = null;
+
+        function timer(){
+            if(times< 0){
+                //倒计时结束，提交表单
+                //document.getElementById("frm").submit();
+                window.clearInterval(timeObj);
+                alert("考试超时,强制终止！")
+                return;
+            }
+            if(stype==1){//分、秒统计时间
+                var t = Math.floor(times/60) +"分"+times%60+"秒"
+            }else{
+                var t = times+"秒"
+            }
+            timeDiv.innerHTML ="剩余时间："+ t;
+            times --;
+
+        }
+        timeObj = window.setInterval(timer,1000);
+    }
 </script>
 </html>
